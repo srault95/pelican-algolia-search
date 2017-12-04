@@ -1,0 +1,34 @@
+.venv
+.env
+node_modules
+plugins
+
+# Local backups
+*~
+
+__pycache__
+pelican/cache/
+pelican/pelican/extras
+
+
+# Python
+*.py[cod]
+
+# Pelican
+*.pid
+output*
+
+# Translations
+*.mo
+
+*.log
+
+# Let's Encrypt
+privkey*.pem
+letsencrypt/keys/*.pem
+letsencrypt/logs/*.log*
+archives
+
+TODO*
+
+demo/
