@@ -1,36 +1,31 @@
-# Intégration d'Algolia Search avec Pelican
+# Algolia Search integration for Pelican
 
-Ce plugin [Pelican](http://docs.getpelican.com) vous permet d'indexer
-automatiquement vos documents sur le service Cloud
-[Algolia](https://www.algolia.com).
+This [Pelican](http://docs.getpelican.com) plugin automatically indexes your posts with the  [Algolia](https://www.algolia.com) cloud service.
 
-Vous trouverez un exemple [ici](https://tested-for-you.surge.sh/).
+You can find a live example [here](https://tested-for-you.surge.sh/).
 
-A chaque fois que vous lancerez la commande **pelican** pour mettre à jour votre
-site, ce plugin mettra à jour vos indexes dans le cloud et supprimera les
-documents qui n'existe plus.
+Each time you rebuild your site the plugin will update the indexes on the Algolia servers and remove any deleted documents.
 
-## Installation & configuration
+## Installation & Configuration
 
-**Créez un compte gratuit chez Algolia:**
+**Create a free account with Algolia:**
 
-> La création du compte ne demande aucun moyen de paiement et le service est
-> opérationnel en quelques secondes.
+> You do not need a credit card to create an account and it will be enabled immediately.
 
-**Clonez ce dépôt dans votre répertoire de plugins:**
+**Clone this repository and add it to your plugin folder:**
 
 ```bash
 $ cd plugins
 $ git clone https://github.com/srault95/pelican-algolia-search.git
 ```
 
-**Installez les pré-requis:**
+**Install requirements:**
 
 ```bash
 pip install algoliasearch beautifulsoup4
 ```
 
-**Ajoutez dans pelicanconf.py:**
+**Enable & configure the plugin in your pelicanconf.py:**
 
 ```python
 PLUGINS = [
@@ -38,26 +33,22 @@ PLUGINS = [
     'algolia_search'
 ]
 
-ALGOLIA_APP_ID = "[A REMPLIR]"
-ALGOLIA_SEARCH_API_KEY = "[A REMPLIR]"
-ALGOLIA_ADMIN_API_KEY = "[A REMPLIR]"
+ALGOLIA_APP_ID = "[YOUR ALGOLIA APPID]"
+ALGOLIA_SEARCH_API_KEY = "[YOUR ALGOLIA SEARCH API KEY]"
+ALGOLIA_ADMIN_API_KEY = "[YOUR ALGOLIA ADMIN API KEY]"
 ALGOLIA_INDEX_NAME = 'demoblog'
 ```
 
-**Créez votre page de recherche:**
+**Build you own search page:**
 
-Il existe plusieurs méthodes pour intégrer les widgets Algolia dans votre site.
-Pour ma part, j'ai choisi d'utiliser
-[vue-instantsearch](https://community.algolia.com/vue-instantsearch)
+There are many ways to integrate the Algolia search widgets in your website. I chose to use [vue-instantsearch](https://community.algolia.com/vue-instantsearch).
 
-J'ai complétement remplacer le template index.html pour que l'ouverture de mon
-site, permette de rechercher directement l'information.
-[ma page index](https://github.com/srault95/tested-for-you/blob/master/pelican/themes/alchemy/templates/index.html)
+I completely replaced the `index.html` template to put the search box on the index page. ([index.html](https://github.com/srault95/tested-for-you/blob/master/pelican/themes/alchemy/templates/index.html)) 
 
-Vous trouverez également, tous les exemples nécessaires dans la
-[documentation d'Algolia](https://www.algolia.com/doc/tutorials/search-ui/instant-search/build-an-instant-search-results-page/instantsearchjs/)
+The [Algolia documentation](https://www.algolia.com/doc/tutorials/search-ui/instant-search/build-an-instant-search-results-page/instantsearchjs/)
+ has all the necessary information and examples to get started.
 
-**Relancez la génération de votre site:**
+**Rebuild your website:**
 
 ```bash
 $ pelican
